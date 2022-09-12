@@ -1,0 +1,28 @@
+﻿@using WebApplication2.Models;
+@model Equipo;
+@{
+    ViewData["title"] = "Crear equipo";
+}
+
+<form class="row g-3 needs-validation" method="post" asp-controller="Equipo" asp-action="Crear" novalidate>
+    
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-floating mb-3">
+        <input asp-for="Name" type="text" class="form-control" id="floatingInput" >
+        <label for="floatingInput" asp-for="Name"></label>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="Ciudad" type="text" class="form-control" id="floatingInput" >
+        <label for="floatingInput" asp-for="Ciudad"></label>
+        <span asp-validation-for="Ciudad" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="Duenio" type="text" class="form-control" id="floatingInput">
+        <label for="floatingInput" asp-for="Duenio"></label>
+        <span asp-validation-for="Duenio" class="text-danger"></span>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Crear equipo</button>
+    </div>
+</form>

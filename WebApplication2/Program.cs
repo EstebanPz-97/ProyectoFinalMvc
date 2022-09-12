@@ -1,9 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using WebApplication2.Data;
+using WebApplication2.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<EquipoServices>();
+
+//conexion a la base de datos
+builder.Services.AddDbContext<WebApplication2DbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("webConnectionString")));
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
